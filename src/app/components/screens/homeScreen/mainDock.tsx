@@ -53,12 +53,12 @@ function AppIcon({mousex, index, img, link}:{mousex:MotionValue, index:number, i
         return val - rect.x - ref.current?.offsetWidth/2;
     });
 
-    let widthValues = index === 2 ? [220, 260, 220] : [60, 100, 60];
+    let widthValues = index === 2 ? [280, 320, 280] : [60, 100, 60];
     let widthSync = useTransform(distance , [-200, 0, 200], widthValues);
     let newWidth = useSpring(widthSync, {stiffness: 200, damping: 15, mass: 0.1});
     return (
         <motion.div ref={ref} style={{width:newWidth}} className="aspect-square w-10 bg-black rounded-full cursor-pointer" onClick={() => window.open(link, "_blank")}>
-            <img src={img} className="rounded-full"/>
+            <img src={img} className={`rounded-full ${index === 2 ? "border-4" : ""}`} />
         </motion.div>
     )
 }

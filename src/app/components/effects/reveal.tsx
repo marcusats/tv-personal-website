@@ -4,7 +4,7 @@ import {motion, useAnimation, useInView} from "framer-motion";
 
 interface RevealProps {
     children: React.ReactNode;
-    width: "fit-content" | "100%";
+    width: "fit-content" | "100%" | "auto" | string;
 }
 
 export default function Reveal({ children, width }: RevealProps) {
@@ -18,7 +18,6 @@ export default function Reveal({ children, width }: RevealProps) {
     useEffect(() => {
         if (isInView) {
             mainControls.start("visible");
-            
         }
     }, [isInView]);
 

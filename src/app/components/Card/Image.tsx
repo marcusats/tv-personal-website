@@ -31,7 +31,7 @@ export const Image = ({
     ...inverted, 
     ...(!isSelected ? {
       backgroundImage: `url(${logo})`, 
-      backgroundSize: '100% 100%', // Logo grows with the div
+      backgroundSize: '100% 100%', 
       backgroundPosition: 'center center', 
       backgroundRepeat: 'no-repeat',
       width: '100%',
@@ -42,6 +42,7 @@ export const Image = ({
       originX: 0.5, 
       originY: 0.5,
       scale: 1.17,
+      filter: 'opacity(70%)', 
     } : {}),
   }}
 >
@@ -49,6 +50,5 @@ export const Image = ({
     <CarouselComponent images={images} pointOfInterest={pointOfInterest} closeSpring={closeSpring} link={link} />
   ) : null}
 </motion.div>
-
-    );
-};
+    )
+}

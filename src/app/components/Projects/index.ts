@@ -11,9 +11,9 @@ export const Projects: CardData[] = [
       description: "At Cabal Labs, we recognize the challenges that newcomers face when diving into the world of Web3. The steep learning curve associated with mastering multiple blockchain tools simultaneously can be daunting for first-time users. To address this, we've developed Cabal Chat — a user-friendly platform that transforms the complex landscape of Web3 into an accessible, chatbot-driven experience. This approach allows users to execute sophisticated Web3 actions and gather insights about blockchain technologies through simple and intuitive prompts. Our focus on modularity in our technological framework ensures future adaptability and expansion. This foresight allows us to seamlessly integrate new tools as the Web3 domain evolves. Moreover, Cabal Chat will feature a plugin system, empowering developers to innovate within our ecosystem. This functionality not only lowers the barrier of entry for early-stage companies seeking to capture the attention of new users but also acquaints these users with the latest and most relevant Web3 technologies in a straightforward, uncluttered manner.",
       logo: "./img/cabalchat/chatLogo.png",
       images: [
-        "./img/cabalchat/CabalChat.png",
         "./img/cabalchat/CabalChat2.png",
-        "./img/cabalchat/CabalChat3.png",
+        "./img/cabalchat/CabalChat2.png",
+        "./img/cabalchat/CabalChat2.png",
       ],
       link: "https://www.youtube.com/watch?v=tqcXikMuVZI&t=1s", 
       repo: "https://github.com/Cabal-Labs/cabal-chat-ETH-ISTANBUL",
@@ -42,7 +42,7 @@ export const Projects: CardData[] = [
       {
         id: "3",
         category: "ETHWaldo",
-        title:"Marketplace for creators seeking sponsorships. Creators can explore listings, or receive partnership offers tailored to their niche.",
+        title:"Marketplace for creators seeking sponsorships deals.",
         pointOfInterest: 80,
         backgroundColor: "#814A0E",
         description:"ETHWaldo is a platform that connects creators with sponsors within the Ethereum ecosystem, streamlining sponsorship deals through Ethereum wallet addresses. It allows sponsors to define specific performance metrics for payment release, offering detailed control over investments. The platform features a secure vault for holding funds until agreement terms are met, protecting both creators and sponsors. Additionally, ETHWaldo offers a content review system, with options for personal or peer review, to ensure content meets sponsorship terms. Payment processes are automated via smart contracts, and the platform emphasizes open communication and transparency. ETHWaldo aims to blend creativity, collaboration, and cryptocurrency to benefit all stakeholders.",
@@ -142,6 +142,24 @@ export const Projects: CardData[] = [
         repo: "https://github.com/Cabal-Labs/SmartMinterV1/tree/main",
         submission: "https://smartminter.caballabs.com/"
       },
+      {
+        id: "9",
+        category: "Kanan",
+        title:"Frames as a service.",
+        pointOfInterest: 80,
+        backgroundColor: "#814A0E",
+        description:"Kanan is a platform that leverages frames for the creator economy. It allows creators to mint frames as NFTs and sell them on the platform. The platform also allows creators to create frames for their social media posts and stories. Kanan is built on the Ethereum blockchain and uses IPFS for storing the frames. The platform also has a marketplace where creators can buy and sell frames. Kanan aims to empower creators by providing them with a new way to monetize their content.",
+        logo: "./img/kanan/kananLogo.png",
+        images: [
+          "./img/kanan/kanan.png",
+          "./img/kanan/kanan.png",
+          "./img/kanan/kanan.png",
+        ] ,
+        link: "https://blog.caballabs.com/your-nft-collection-in-3-simple-steps-final-guide-4ce29580ae3e",
+        repo: "https://github.com/Cabal-Labs/SmartMinterV1/tree/main",
+        submission: "https://smartminter.caballabs.com/"
+
+      }
 
 
       

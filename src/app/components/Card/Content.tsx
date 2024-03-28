@@ -16,7 +16,7 @@ export const Content = React.memo<ContentProps>(({ text, githubLink, submissionL
       className="content-container"
       style={{ ...inverted, originY: 0, originX: 0 }}
     >
-      <div className="flex items-start mb-5 ml-2 space-x-2">
+      <div className="flex items-start mb-5 ml-2 space-x-2 ">
         {githubLink && (
           <a href={githubLink} target="_blank" rel="noopener noreferrer">
             <img src="/icons/githubIcon.png" alt="GitHub" className="w-6 h-6" />

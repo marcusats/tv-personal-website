@@ -1,8 +1,7 @@
 'use client'
-import * as React from "react";
+import  React,{ useState} from "react";
 import { memo, useRef } from "react";
-import { motion, useMotionValue } from "framer-motion";
-
+import { motion, useMotionValue, useInView, useAnimation} from "framer-motion";
 import { useInvertedBorderRadius } from "../utils/use-inverted-border-radius";
 import { CardData } from "../types/Card";
 import { Content } from "./Content";
@@ -20,6 +19,7 @@ interface Props extends CardData {
   };
   onClick?: (e: any) => void;
   setIdSelected: React.Dispatch<React.SetStateAction<string>>;
+  scrollReference: () => number;
 }
 
 
@@ -40,16 +40,30 @@ export const Card = memo(
     link,
     submission,
     repo,
+    scrollReference,
     onClick,
   }: Props) => {
     const y = useMotionValue(0);
     const zIndex = useMotionValue(isSelected ? 2 : 0);
     const x = useMotionValue(0);
+    const [topPosition, setTopPosition] = useState(0);
+
+
 
     const inverted = useInvertedBorderRadius(20);
 
-    const cardRef = useRef(null);
+    const cardRef = useRef<HTMLDivElement>(null);
     const constraints = useScrollConstraints(cardRef, isSelected);
+
+    const isInView = useInView(cardRef,{once:true});
+
+    const mainControls = useAnimation();
+
+    React.useEffect(() => {
+        if (isInView) {
+            mainControls.start("visible");
+        }
+    }, [isInView]);
 
     function checkSwipeToDismiss() {
       if(y.get() > dismissDistance){
@@ -59,6 +73,21 @@ export const Card = memo(
       };
     }
 
+    function findRelativePositionToViewportCenter() {
+      // Get the bounding rectangle of the element
+    
+      const viewportCenterY = window.innerHeight / 2;
+      const reference = scrollReference();
+    
+      
+  
+      return { top: viewportCenterY + reference};
+    }
+
+
+
+    
+
     function checkZIndex(latest: any) {
       if (isSelected) {
         zIndex.set(2);
@@ -66,6 +95,12 @@ export const Card = memo(
         zIndex.set(0);
       }
     }
+    React.useEffect(() => {
+      if (isSelected) {
+        
+        console.log(`y: ${y.get()}`);
+      }
+    }, [y, isSelected]);
 
     React.useEffect(() => {
       if (!isSelected) {
@@ -73,7 +108,18 @@ export const Card = memo(
         zIndex.set(0);
         x.set(0);
       }
+      
     }, [isSelected, y]);
+    
+    React.useEffect(() => {
+      if (isSelected) {
+        const { top } = findRelativePositionToViewportCenter();
+        setTopPosition(top + 45);
+
+        console.log(`top: ${top}`);
+        console.log(`scrollReference: ${scrollReference}`);
+      }
+    }, [isSelected]);
 
 
     const containerRef = useRef(null);
@@ -86,18 +132,25 @@ export const Card = memo(
     );
 
     return (
+      
       <li ref={containerRef} className={`card`}>
-        <div className={`card-content-container ${isSelected && "open"}`} onClick={onClick}>
+        
+        <div className={`card-content-container ${isSelected ? "open" : "cursor-pointer"}  pointer-events-none hover:scale-105 transition-transform duration-300 `} onClick={onClick} style={isSelected ? { top: `${topPosition}px`, left: `0`, right: "0", position: "fixed", zIndex: "1", overflow: "hidden", padding: "40px 0", transform: "translateY(-50%)" } : {}}>
+          
           <motion.div
             ref={cardRef}
-            className="card-content"
+            className="card-content pointer-events-none"
             style={{ ...inverted, zIndex, y }}
             layout
             transition={isSelected ? openSpring : closeSpring}
             drag={false}
             onUpdate={checkZIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial="hidden"
+            animate={mainControls}
+            variants={{
+                hidden: { opacity: 0, y:75 },
+                visible: { opacity: 1, y: 0 },
+            }}
 
           >
             <Image
@@ -113,8 +166,11 @@ export const Card = memo(
             {isSelected ? <div onClick={(e) => { e.stopPropagation(); setIdSelected(""); }} className="absolute top-3 right-4 bg-black bg-opacity-50 rounded-full w-6 h-6 flex items-center justify-center cursor-pointer">X</div> : null}
             <Content text={description} githubLink={repo as string} submissionLink={submission as string} youtubeLink={link} />
           </motion.div>
+          
         </div>
+        
       </li>
+      
     );
   },
   (prev, next) => prev.isSelected === next.isSelected
