@@ -18,17 +18,17 @@ export const Content = React.memo<ContentProps>(({ text, githubLink, submissionL
     >
       <div className="flex items-start mb-5 ml-2 space-x-2 ">
         {githubLink && (
-          <a href={githubLink} target="_blank" rel="noopener noreferrer">
+          <a href={githubLink} target="_blank" rel="noopener noreferrer" className="inline-block">
             <img src="/icons/githubIcon.png" alt="GitHub" className="w-6 h-6" />
           </a>
         )}
         {youtubeLink && (
-          <a href={youtubeLink} target="_blank" rel="noopener noreferrer">
+          <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="inline-block">
             <img src="/icons/youtubeIcon.png" alt="YouTube" className="w-6 h-6" />
           </a>
         )}
         {submissionLink && (
-          <a href={submissionLink} target="_blank" rel="noopener noreferrer">
+          <a href={submissionLink} target="_blank" rel="noopener noreferrer" className="inline-block">
             <img src="/icons/submissionIcon.png" alt="Submission" className="w-6 h-6" />
           </a>
         )}

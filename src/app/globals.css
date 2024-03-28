@@ -346,3 +346,12 @@ p {
     padding: 0;
   }
 }
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: white;
+  bottom: 100px;
+}

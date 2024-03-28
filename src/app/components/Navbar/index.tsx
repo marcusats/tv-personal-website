@@ -16,16 +16,18 @@ const Navbar = () => {
     >
 
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href={"/"} >
+        <div className="flex items-center h-16">
+          <a href={"/"} className="flex items-center space-x-4">
             <img src="/img/logo.png" alt="Marcos Logo" className="h-11 w-11 rounded-full" />
+            <div className="text-white space-x-2">
+              {/* <a href={"/"} className="text-gray-300 hover:text-white border-b">Home</a>
+              <a href={"/#projects"} className="text-gray-300 hover:text-white border-b">Projects</a>
+              <a href={"/#contact"} className="text-gray-300 hover:text-white border-b">Contact</a> */}
+            </div>
           </a>
-          <div className="flex space-x-4 text-white">
-            {/* Placeholder for future navigation links */}
-          </div>
           <button 
             onClick={handleResumeClick} 
-            className="text-white border border-pink-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:bg-pink-700 hover:text-white active:bg-pink-900"
+            className="ml-auto text-white border border-pink-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:bg-pink-700 hover:text-white active:bg-pink-900"
           >
             My Resume
           </button>
