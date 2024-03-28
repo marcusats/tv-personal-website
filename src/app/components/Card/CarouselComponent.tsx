@@ -1,5 +1,4 @@
 import React from "react";
-import { Carousel } from 'react-responsive-carousel';
 import { motion } from "framer-motion";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -10,18 +9,25 @@ type CarouselComponentProps = {
     link?: string;
 };
 
-const CarouselComponent = ({ images, pointOfInterest = 0, closeSpring, link }: CarouselComponentProps) => (
-    <motion.div  className="card-image-container cursor-pointer max-w-3xl min-w-xl" >
-        <motion.img
-            src={images[2]}
-            alt={`Image of ${images[0]}`}
+const CarouselComponent = ({ images, pointOfInterest = 0, closeSpring }: CarouselComponentProps) => (
+    <div className="card-image-container cursor-pointer w-full max-w-3xl mx-auto">
+        <motion.div
             initial={false}
-            animate={{ x: -pointOfInterest/2, y: 0 }}
+            animate={{ x: -pointOfInterest * 0.45, y: 0 }}
             transition={closeSpring}
-            className="object-cover object-center "
-            style={{ scale: 0.9}}
-        />
-    </motion.div>
+            className="w-full h-full overflow-hidden translate-x-[50%] translate-y-[50%]"
+        >
+            <motion.img
+                src={images[2]}
+                alt={`Image of ${images[0]}`}
+                className="w-full h-full object-cover"
+                style={{ scale: 0.9 }}
+            />
+        </motion.div>
+    </div>
 );
 
 export default CarouselComponent;
+
+
+

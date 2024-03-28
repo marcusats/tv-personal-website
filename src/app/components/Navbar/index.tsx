@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex items-center h-16">
           <a href={"/"} className="flex items-center space-x-4">
-            <Image src="/img/logo.png" alt="Marcos Logo" className="h-11 w-11 rounded-full" />
+            <Image src="/img/logo.png" alt="Marcos Logo" width={44}  height={44} className="h-11 w-11 rounded-full" />
             <div className="text-white space-x-2">
               {/* <a href={"/"} className="text-gray-300 hover:text-white border-b">Home</a>
               <a href={"/#projects"} className="text-gray-300 hover:text-white border-b">Projects</a>

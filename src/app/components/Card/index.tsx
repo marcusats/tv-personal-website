@@ -23,7 +23,7 @@ interface Props extends CardData {
 }
 
 
-const dismissDistance = 150;
+const dismissDistance = 100;
 
 const CardComponent = 
   ({
@@ -74,11 +74,9 @@ const CardComponent =
     }
 
     function findRelativePositionToViewportCenter() {
-      // Get the bounding rectangle of the element
     
       const viewportCenterY = window.innerHeight / 2;
       const reference = scrollReference();
-    
       
   
       return { top: viewportCenterY + reference};
@@ -114,7 +112,8 @@ const CardComponent =
     React.useEffect(() => {
       if (isSelected) {
         const { top } = findRelativePositionToViewportCenter();
-        setTopPosition(top + 45);
+        let windowCenter = window.innerHeight / 2;
+        setTopPosition(windowCenter + 45);
 
         console.log(`top: ${top}`);
         console.log(`scrollReference: ${scrollReference}`);
@@ -135,7 +134,7 @@ const CardComponent =
       
       <li ref={containerRef} className={`card`}>
         
-        <div className={`card-content-container ${isSelected ? "open" : "cursor-pointer"}  pointer-events-none hover:scale-105 transition-transform duration-300 `} onClick={onClick} style={isSelected ? { top: `${topPosition}px`, left: `0`, right: "0", position: "fixed", zIndex: "1", overflow: "hidden", padding: "40px 0", transform: "translateY(-50%)" } : {}}>
+        <div className={`card-content-container ${isSelected ? "open" : "cursor-pointer"}   hover:scale-105 transition-transform duration-300 `} onClick={onClick} style={isSelected ? { top: `${topPosition}px `, left: `0`, right: "0", position: "fixed", zIndex: "1", overflow: "hidden", padding: "40px 0", transform: "translateY(-50%)" } : {}}>
           
           <motion.div
             ref={cardRef}
@@ -153,18 +152,27 @@ const CardComponent =
             }}
 
           >
-            <Image
-              id={id}
-              pointOfInterest={pointOfInterest}
-              backgroundColor={backgroundColor}
-              isSelected={isSelected}
-              images={images}
-              logo={logo}
-              link={link}
-            />
+            <motion.div
+            className=" md:"
+            >
+              <Image
+                  id={id}
+                  pointOfInterest={pointOfInterest}
+                  backgroundColor={backgroundColor}
+                  isSelected={isSelected}
+                  images={images}
+                  logo={logo}
+                  link={link}
+                />
+            </motion.div>
+              
             <Title title={title} category={category} isSelected={isSelected} />
             {isSelected ? <div onClick={(e) => { e.stopPropagation(); setIdSelected(""); }} className="absolute top-3 right-4 bg-black bg-opacity-50 rounded-full w-6 h-6 flex items-center justify-center cursor-pointer">X</div> : null}
-            <Content text={description} githubLink={repo as string} submissionLink={submission as string} youtubeLink={link} />
+            <div style={{ pointerEvents: 'auto' }}>
+
+              <Content text={description} githubLink={repo as string} submissionLink={submission as string} youtubeLink={link} />
+            </div>
+            
           </motion.div>
           
         </div>

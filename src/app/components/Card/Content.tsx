@@ -16,26 +16,35 @@ const ContentComponent: React.FC<ContentProps> = ({ text, githubLink, submission
       <div className="flex items-start mb-5 ml-2 space-x-2">
         {githubLink && (
           <a href={githubLink} target="_blank" rel="noopener noreferrer" className="inline-block">
-            <Image src="/icons/githubIcon.png" alt="GitHub" width={24} height={24} />
+            <span style={{ display: 'inline-block', position: 'relative', width: 24, height: 24 }}>
+              <Image src="/icons/githubIcon.png" alt="GitHub" layout="fill" objectFit="cover" />
+            </span>
           </a>
         )}
         {youtubeLink && (
           <a href={youtubeLink} target="_blank" rel="noopener noreferrer" className="inline-block">
-            <Image src="/icons/youtubeIcon.png" alt="YouTube" width={24} height={24} />
+            <span style={{ display: 'inline-block', position: 'relative', width: 24, height: 24 }}>
+              <Image src="/icons/youtubeIcon.png" alt="YouTube" layout="fill" objectFit="cover" />
+            </span>
           </a>
         )}
         {submissionLink && (
           <a href={submissionLink} target="_blank" rel="noopener noreferrer" className="inline-block">
-            <Image src="/icons/submissionIcon.png" alt="Submission" width={24} height={24} />
+            <span style={{ display: 'inline-block', position: 'relative', width: 24, height: 24 }}>
+              <Image src="/icons/submissionIcon.png" alt="Submission" layout="fill" objectFit="cover" />
+            </span>
           </a>
         )}
       </div>
-      <p style={{ color: 'whitesmoke', whiteSpace: 'pre-wrap', textAlign: 'justify' }}>{text}</p>
+      {/* Adjusted the text size for responsiveness */}
+      <p className="text-sm md:text-base text-whitesmoke whitespace-pre-wrap justify-text">
+        {text}
+      </p>
     </motion.div>
   );
 };
 
-ContentComponent.displayName = 'Content'; 
+ContentComponent.displayName = 'Content';
 
 export const Content = React.memo(ContentComponent);
 

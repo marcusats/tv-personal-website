@@ -247,10 +247,10 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden;
+
   height: 420px;
-  width: 70vw;
-  transform: translateZ(0);
+  width: 100vh;
+  transform: translateZ(1);
 }
 .card-carousel-image{
   position: absolute;

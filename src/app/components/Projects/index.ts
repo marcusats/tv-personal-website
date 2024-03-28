@@ -155,9 +155,9 @@ export const Projects: CardData[] = [
           "./img/kanan/kanan.png",
           "./img/kanan/kanan.png",
         ] ,
-        link: "https://blog.caballabs.com/your-nft-collection-in-3-simple-steps-final-guide-4ce29580ae3e",
-        repo: "https://github.com/Cabal-Labs/SmartMinterV1/tree/main",
-        submission: "https://smartminter.caballabs.com/"
+        link: "",
+        repo: "https://github.com/marcusats/kanan",
+        submission: "https://ethglobal.com/showcase/kanan-esnho"
 
       }
 

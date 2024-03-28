@@ -16,7 +16,7 @@ const HomeScreen = () => {
         </p>
         <br />
         <p className="text-sm md:text-base">
-          At Stevens Institute of Technology, I've balanced academic and entrepreneurial efforts. I was part of the founding team from <a href='https://www.securemeeting.org/' target='_blank' rel="noopener noreferrer">SecureMeeting</a>, a non-profit videoconferencing platform used in over 110 countries, leading to a mentorship role in the university's accelerator program. In the Web3 space, I contributed to <a href='https://www.impactmarket.com/' target='_blank' rel="noopener noreferrer">ImpactMarket's</a> microcredit platform, enhancing my software engineering and blockchain skills. Additionally, I established Cabal Labs, focusing on Web3 and AI research and development.
+          At Stevens Institute of Technology, I've balanced academic and entrepreneurial efforts. I was part of the founding team from <a href='https://www.securemeeting.org/' target='_blank' rel="noopener noreferrer">SecureMeeting</a>, a non-profit videoconferencing platform used in over 110 countries, leading to a mentorship role in the university's accelerator program. In the Web3 space, I contributed to <a href='https://www.impactmarket.com/' target='_blank' rel="noopener noreferrer">ImpactMarket's</a> microcredit platform, enhancing my software engineering and blockchain skills. 
         </p>
       </div>
     <div>
