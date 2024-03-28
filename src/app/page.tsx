@@ -56,8 +56,12 @@ export default function Home() {
     }
   }
   
-  let stages =  [<HomeScreen />, <div ref={divRef}><ProjectsScreen scrollReference={scrollReference} /></div>,<ContactSection />]
-
+  let stages = [
+    <HomeScreen key="home" />,
+    <div key="projects" ref={divRef}><ProjectsScreen scrollReference={scrollReference} /></div>, 
+    <ContactSection key="contact" />
+  ];
+  
  
 
   return (

@@ -25,7 +25,7 @@ interface Props extends CardData {
 
 const dismissDistance = 150;
 
-export const Card = memo(
+const CardComponent = 
   ({
     isSelected,
     setIdSelected,
@@ -172,7 +172,10 @@ export const Card = memo(
       </li>
       
     );
-  },
-  (prev, next) => prev.isSelected === next.isSelected
-);
+}
+
+
+CardComponent.displayName = "Card"; 
+
+export const Card = memo(CardComponent, (prev, next) => prev.isSelected === next.isSelected);
 
